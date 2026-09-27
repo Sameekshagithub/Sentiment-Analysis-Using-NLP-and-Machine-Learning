@@ -1,4 +1,4 @@
-# Mood Reader — Sentiment Analysis (NLP + Flask)
+# Sentiment Analysis (NLP + Flask)
 
 A small end-to-end sentiment analysis project: a synthetic review dataset,
 a TF-IDF + Logistic Regression classifier, and a Flask web app with a
