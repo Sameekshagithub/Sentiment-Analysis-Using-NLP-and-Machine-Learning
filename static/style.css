@@ -1,0 +1,261 @@
+:root {
+  --butter-bg: #fff6da;
+  --butter-card: #fffdf4;
+  --butter-line: #e8d9a0;
+  --ink: #3a2e14;
+  --ink-soft: #7a6a45;
+  --mustard: #d9a62c;
+  --mustard-dark: #b8871a;
+  --positive: #5b7b3b;
+  --negative: #b5533c;
+  --neutral: #8a7a4a;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Public Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--butter-bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.5;
+}
+
+.page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px 56px;
+}
+
+/* --- Header --- */
+
+.masthead {
+  padding: 56px 0 40px;
+  border-bottom: 1px solid var(--butter-line);
+}
+
+.kicker {
+  display: block;
+  font-size: 13px;
+  color: var(--ink-soft);
+  letter-spacing: 0.02em;
+  margin-bottom: 14px;
+}
+
+.masthead h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 46px;
+  margin: 0 0 14px;
+  color: var(--ink);
+}
+
+.lede {
+  font-size: 17px;
+  color: var(--ink-soft);
+  max-width: 46ch;
+  margin: 0;
+}
+
+/* --- Layout --- */
+
+.content {
+  padding-top: 40px;
+  display: grid;
+  gap: 20px;
+}
+
+/* --- Input card --- */
+
+.input-card {
+  background: var(--butter-card);
+  border: 1px solid var(--butter-line);
+  border-radius: 6px;
+  padding: 24px;
+}
+
+.field-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--ink);
+}
+
+textarea {
+  width: 100%;
+  resize: vertical;
+  background: repeating-linear-gradient(
+    var(--butter-card),
+    var(--butter-card) 31px,
+    var(--butter-line) 32px
+  );
+  border: 1px solid var(--butter-line);
+  border-radius: 4px;
+  padding: 8px 14px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 32px;
+  color: var(--ink);
+}
+
+textarea:focus {
+  outline: 2px solid var(--mustard);
+  outline-offset: 2px;
+}
+
+.input-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.char-count {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+#analyze-btn {
+  background: var(--mustard);
+  color: #2a2004;
+  border: none;
+  border-radius: 4px;
+  padding: 11px 22px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+#analyze-btn:hover {
+  background: var(--mustard-dark);
+}
+
+#analyze-btn:disabled {
+  background: var(--butter-line);
+  color: var(--ink-soft);
+  cursor: not-allowed;
+}
+
+.error-msg {
+  color: var(--negative);
+  font-size: 14px;
+  margin: 12px 0 0;
+  min-height: 0;
+}
+
+/* --- Result card --- */
+
+.result-card {
+  background: var(--butter-card);
+  border: 1px solid var(--butter-line);
+  border-radius: 6px;
+  padding: 24px;
+  min-height: 140px;
+}
+
+.result-empty p {
+  color: var(--ink-soft);
+  font-size: 15px;
+  margin: 0;
+}
+
+.result-headline {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.result-label {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.result-label.Positive { color: var(--positive); }
+.result-label.Negative { color: var(--negative); }
+.result-label.Neutral { color: var(--neutral); }
+
+.result-confidence {
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+.breakdown {
+  display: grid;
+  gap: 10px;
+}
+
+.breakdown-row {
+  display: grid;
+  grid-template-columns: 90px 1fr 48px;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.breakdown-track {
+  background: var(--butter-line);
+  border-radius: 3px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.breakdown-fill {
+  height: 100%;
+  border-radius: 3px;
+}
+
+.breakdown-fill.Positive { background: var(--positive); }
+.breakdown-fill.Negative { background: var(--negative); }
+.breakdown-fill.Neutral { background: var(--neutral); }
+
+.cleaned-details {
+  margin-top: 20px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.cleaned-details summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.cleaned-details p {
+  margin: 8px 0 0;
+  font-family: "Courier New", monospace;
+}
+
+/* --- Footer --- */
+
+.site-footer {
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 1px solid var(--butter-line);
+}
+
+.site-footer p {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .masthead h1 {
+    font-size: 34px;
+  }
+  .breakdown-row {
+    grid-template-columns: 70px 1fr 40px;
+  }
+}

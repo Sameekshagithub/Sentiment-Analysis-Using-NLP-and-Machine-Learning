@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sentiment Analysis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+
+<div class="page">
+
+  <header class="masthead">
+    <div class="masthead-inner">
+      <span class="kicker">Text analysis · Logistic Regression + TF-IDF</span>
+      <h1>Sentiment Analysis</h1>
+      <p class="lede">
+        Paste in a review, a comment, or a stray sentence and this reads
+        back the sentiment behind it — positive, neutral, or negative —
+        along with how sure the model is.
+      </p>
+    </div>
+  </header>
+
+  <main class="content">
+
+    <section class="input-card">
+      <label for="review-text" class="field-label">Text to analyze</label>
+      <textarea
+        id="review-text"
+        rows="6"
+        placeholder="e.g. The camera on this phone is fantastic, but the battery drains way too fast."
+      ></textarea>
+
+      <div class="input-footer">
+        <span class="char-count" id="char-count">0 characters</span>
+        <button id="analyze-btn" type="button">Analyze sentiment</button>
+      </div>
+
+      <p class="error-msg" id="error-msg"></p>
+    </section>
+
+    <section class="result-card" id="result-card">
+      <div class="result-empty" id="result-empty">
+        <p>Results will show up here once you analyze some text.</p>
+      </div>
+
+      <div class="result-filled" id="result-filled" hidden>
+        <div class="result-headline">
+          <span class="result-label" id="result-label">Positive</span>
+          <span class="result-confidence" id="result-confidence">0% confident</span>
+        </div>
+
+        <div class="breakdown" id="breakdown">
+          <!-- filled in by JS -->
+        </div>
+
+        <details class="cleaned-details">
+          <summary>What the model actually saw</summary>
+          <p id="cleaned-text"></p>
+        </details>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Trained on a synthetic dataset of product and service reviews · TF-IDF + Logistic Regression</p>
+  </footer>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
